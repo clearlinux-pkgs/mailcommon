@@ -5,18 +5,18 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : mailcommon
-Version  : 18.08.0
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.08.0/src/mailcommon-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/mailcommon-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/mailcommon-18.08.0.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.2
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.2/src/mailcommon-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/mailcommon-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/mailcommon-18.12.2.tar.xz.sig
+Summary  : KDE PIM library providing support for mail applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
-Requires: mailcommon-lib
-Requires: mailcommon-license
-Requires: mailcommon-locales
-Requires: mailcommon-data
+Requires: mailcommon-data = %{version}-%{release}
+Requires: mailcommon-lib = %{version}-%{release}
+Requires: mailcommon-license = %{version}-%{release}
+Requires: mailcommon-locales = %{version}-%{release}
 BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
@@ -39,7 +39,7 @@ BuildRequires : mailimporter-dev
 BuildRequires : messagelib-dev
 BuildRequires : phonon-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : syntax-highlighting-dev
 
 %description
@@ -56,9 +56,9 @@ data components for the mailcommon package.
 %package dev
 Summary: dev components for the mailcommon package.
 Group: Development
-Requires: mailcommon-lib
-Requires: mailcommon-data
-Provides: mailcommon-devel
+Requires: mailcommon-lib = %{version}-%{release}
+Requires: mailcommon-data = %{version}-%{release}
+Provides: mailcommon-devel = %{version}-%{release}
 
 %description dev
 dev components for the mailcommon package.
@@ -67,8 +67,8 @@ dev components for the mailcommon package.
 %package lib
 Summary: lib components for the mailcommon package.
 Group: Libraries
-Requires: mailcommon-data
-Requires: mailcommon-license
+Requires: mailcommon-data = %{version}-%{release}
+Requires: mailcommon-license = %{version}-%{release}
 
 %description lib
 lib components for the mailcommon package.
@@ -91,26 +91,26 @@ locales components for the mailcommon package.
 
 
 %prep
-%setup -q -n mailcommon-18.08.0
+%setup -q -n mailcommon-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535434635
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549920679
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535434635
+export SOURCE_DATE_EPOCH=1549920679
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/mailcommon
-cp COPYING %{buildroot}/usr/share/doc/mailcommon/COPYING
-cp COPYING.LIB %{buildroot}/usr/share/doc/mailcommon/COPYING.LIB
+mkdir -p %{buildroot}/usr/share/package-licenses/mailcommon
+cp COPYING %{buildroot}/usr/share/package-licenses/mailcommon/COPYING
+cp COPYING.LIB %{buildroot}/usr/share/package-licenses/mailcommon/COPYING.LIB
 pushd clr-build
 %make_install
 popd
@@ -161,7 +161,6 @@ popd
 /usr/include/KF5/MailCommon/MailInterfaces
 /usr/include/KF5/MailCommon/MailKernel
 /usr/include/KF5/MailCommon/MailUtil
-/usr/include/KF5/MailCommon/MetaType
 /usr/include/KF5/MailCommon/RedirectDialog
 /usr/include/KF5/MailCommon/ResourceReadConfigFile
 /usr/include/KF5/MailCommon/SearchPattern
@@ -209,7 +208,6 @@ popd
 /usr/include/KF5/mailcommon/mailkernel.h
 /usr/include/KF5/mailcommon/mailutil.h
 /usr/include/KF5/mailcommon/mdnstateattribute.h
-/usr/include/KF5/mailcommon/metatype.h
 /usr/include/KF5/mailcommon/pop3settings.h
 /usr/include/KF5/mailcommon/redirectdialog.h
 /usr/include/KF5/mailcommon/resourcereadconfigfile.h
@@ -232,13 +230,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailCommon.so.5
-/usr/lib64/libKF5MailCommon.so.5.9.0
+/usr/lib64/libKF5MailCommon.so.5.10.2
 /usr/lib64/qt5/plugins/designer/mailcommonwidgets.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/mailcommon/COPYING
-/usr/share/doc/mailcommon/COPYING.LIB
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mailcommon/COPYING
+/usr/share/package-licenses/mailcommon/COPYING.LIB
 
 %files locales -f libmailcommon.lang
 %defattr(-,root,root,-)
