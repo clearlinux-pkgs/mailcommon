@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : mailcommon
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/mailcommon-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/mailcommon-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/mailcommon-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/mailcommon-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/mailcommon-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/mailcommon-19.04.0.tar.xz.sig
+Summary  : KDE PIM library providing support for mail applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: mailcommon-data = %{version}-%{release}
@@ -59,6 +59,7 @@ Group: Development
 Requires: mailcommon-lib = %{version}-%{release}
 Requires: mailcommon-data = %{version}-%{release}
 Provides: mailcommon-devel = %{version}-%{release}
+Requires: mailcommon = %{version}-%{release}
 
 %description dev
 dev components for the mailcommon package.
@@ -91,23 +92,22 @@ locales components for the mailcommon package.
 
 
 %prep
-%setup -q -n mailcommon-18.12.3
+%setup -q -n mailcommon-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552022788
+export SOURCE_DATE_EPOCH=1555720667
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552022788
+export SOURCE_DATE_EPOCH=1555720667
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mailcommon
 cp COPYING %{buildroot}/usr/share/package-licenses/mailcommon/COPYING
@@ -231,7 +231,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailCommon.so.5
-/usr/lib64/libKF5MailCommon.so.5.10.3
+/usr/lib64/libKF5MailCommon.so.5.11.0
 /usr/lib64/qt5/plugins/designer/mailcommonwidgets.so
 
 %files license
