@@ -6,7 +6,7 @@
 #
 Name     : mailcommon
 Version  : 19.12.3
-Release  : 19
+Release  : 20
 URL      : https://download.kde.org/stable/release-service/19.12.3/src/mailcommon-19.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.3/src/mailcommon-19.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.3/src/mailcommon-19.12.3.tar.xz.sig
