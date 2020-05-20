@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : mailcommon
-Version  : 20.04.0
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/mailcommon-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/mailcommon-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/mailcommon-20.04.0.tar.xz.sig
+Version  : 20.04.1
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/mailcommon-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/mailcommon-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/mailcommon-20.04.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -50,7 +50,7 @@ BuildRequires : mailimporter-dev
 BuildRequires : messagelib-dev
 BuildRequires : phonon-dev
 BuildRequires : pimcommon-dev
-BuildRequires : qtbase-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : syntax-highlighting-dev
 
 %description
@@ -103,15 +103,15 @@ locales components for the mailcommon package.
 
 
 %prep
-%setup -q -n mailcommon-20.04.0
-cd %{_builddir}/mailcommon-20.04.0
+%setup -q -n mailcommon-20.04.1
+cd %{_builddir}/mailcommon-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587706108
+export SOURCE_DATE_EPOCH=1589945947
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -127,11 +127,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587706108
+export SOURCE_DATE_EPOCH=1589945947
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mailcommon
-cp %{_builddir}/mailcommon-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/mailcommon/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/mailcommon-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/mailcommon/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/mailcommon-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/mailcommon/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/mailcommon-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/mailcommon/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -257,7 +257,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailCommon.so.5
-/usr/lib64/libKF5MailCommon.so.5.14.0
+/usr/lib64/libKF5MailCommon.so.5.14.1
 /usr/lib64/qt5/plugins/designer/mailcommonwidgets.so
 
 %files license
