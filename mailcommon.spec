@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : mailcommon
-Version  : 21.04.0
-Release  : 30
-URL      : https://download.kde.org/stable/release-service/21.04.0/src/mailcommon-21.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.0/src/mailcommon-21.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.0/src/mailcommon-21.04.0.tar.xz.sig
+Version  : 21.04.2
+Release  : 31
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/mailcommon-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/mailcommon-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/mailcommon-21.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-3.0
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.0 LGPL-3.0
 Requires: mailcommon-data = %{version}-%{release}
 Requires: mailcommon-lib = %{version}-%{release}
 Requires: mailcommon-license = %{version}-%{release}
@@ -104,15 +104,15 @@ locales components for the mailcommon package.
 
 
 %prep
-%setup -q -n mailcommon-21.04.0
-cd %{_builddir}/mailcommon-21.04.0
+%setup -q -n mailcommon-21.04.2
+cd %{_builddir}/mailcommon-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619205082
+export SOURCE_DATE_EPOCH=1623365010
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,20 +128,21 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1619205082
+export SOURCE_DATE_EPOCH=1623365010
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mailcommon
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/mailcommon/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/mailcommon/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/6091db0aead0d90182b93d3c0d09ba93d188f907
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/mailcommon/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/757b86330df80f81143d5916b3e92b4bcb1b1890
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/7d9831e05094ce723947d729c2a46a09d6e90275
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/mailcommon-21.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/mailcommon-21.04.2/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/mailcommon/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/mailcommon/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/mailcommon/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LGPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/mailcommon/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/mailcommon/757b86330df80f81143d5916b3e92b4bcb1b1890
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/mailcommon-21.04.2/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/mailcommon/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -275,12 +276,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5MailCommon.so.5
-/usr/lib64/libKF5MailCommon.so.5.17.0
+/usr/lib64/libKF5MailCommon.so.5.17.2
 /usr/lib64/qt5/plugins/designer/mailcommonwidgets.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/mailcommon/20079e8f79713dce80ab09774505773c926afa2a
+/usr/share/package-licenses/mailcommon/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/mailcommon/2a638514c87c4923c0570c55822620fad56f2a33
 /usr/share/package-licenses/mailcommon/6091db0aead0d90182b93d3c0d09ba93d188f907
 /usr/share/package-licenses/mailcommon/757b86330df80f81143d5916b3e92b4bcb1b1890
