@@ -2,7 +2,11 @@
 # picked up automatically. One name per line, no whitespace.
 gpgme-dev
 gpgme-extras
+grantlee-dev
+grantleetheme-dev
 kcontacts-dev
 kidentitymanagement-dev
 kpimtextedit-dev
 libkleo-dev
+phonon-dev
+qtwebengine-dev
