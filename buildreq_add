@@ -10,3 +10,11 @@ kpimtextedit-dev
 libkleo-dev
 phonon-dev
 qtwebengine-dev
+akonadi-dev
+akonadi-mime-dev
+kmime-dev
+libkdepim-dev
+mailimporter-dev
+kmailtransport-dev
+messagelib-dev
+kimap-staticdev
