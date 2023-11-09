@@ -7,7 +7,7 @@
 #
 Name     : mailcommon
 Version  : 23.08.2
-Release  : 72
+Release  : 73
 URL      : https://download.kde.org/stable/release-service/23.08.2/src/mailcommon-23.08.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.08.2/src/mailcommon-23.08.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.08.2/src/mailcommon-23.08.2.tar.xz.sig
