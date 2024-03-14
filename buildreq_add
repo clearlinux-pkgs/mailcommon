@@ -9,7 +9,7 @@ kidentitymanagement-dev
 kpimtextedit-dev
 libkleo-dev
 phonon-dev
-qtwebengine-dev
+qt6webengine-dev
 akonadi-dev
 akonadi-mime-dev
 kmime-dev
@@ -18,3 +18,4 @@ mailimporter-dev
 kmailtransport-dev
 messagelib-dev
 kimap-staticdev
+akonadi-contacts-dev
