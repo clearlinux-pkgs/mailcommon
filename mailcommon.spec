@@ -9,7 +9,7 @@
 #
 Name     : mailcommon
 Version  : 24.12.2
-Release  : 112
+Release  : 113
 URL      : https://download.kde.org/stable/release-service/24.12.2/src/mailcommon-24.12.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.12.2/src/mailcommon-24.12.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.12.2/src/mailcommon-24.12.2.tar.xz.sig
